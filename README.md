@@ -19,12 +19,13 @@ classDiagram
     -Account account
     -Adventures[] adventures
     -Card card
-    -Friend[] connections
+    -BasicUser[] connections
     -News[] news
     -Trophies[] trophies
     -Skills[] skills
     -Travel travel
     -Hometown hometown
+    -Transfer[] history
   }
 
   class Account {
@@ -76,6 +77,13 @@ classDiagram
     -String country
   }
 
+   class Transfer {
+     -Date date
+     -Double value
+     -BasicUser from
+     -BasicUser destiny
+   }
+
   User "1" *-- "N" Adventures
   User "1" *-- "N" Friend
   User "1" *-- "1" Account
@@ -84,4 +92,5 @@ classDiagram
   User "1" *-- "N" Skills
   User "1" *-- "1" Travel
   User "1" *-- "1" Hometown
+  User "1" *-- "N" Transfer
 ```
